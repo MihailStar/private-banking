@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-recess-order",
+    "stylelint-config-prettier"
+  ],
+  "rules": {
+    "color-hex-length": "long",
+    "declaration-property-value-disallowed-list": {
+      "/^border/": ["none"],
+      "/^outline/": ["none"]
+    },
+    "max-nesting-depth": null,
+    "order/properties-alphabetical-order": null,
+    "scss/percent-placeholder-pattern": "^[a-z]+(?:[0-9a-z-_]+[0-9a-z]+)?$",
+    "selector-class-pattern": "^[a-z]+(?:[0-9a-z-_]+[0-9a-z]+)?$"
+  }
+}
