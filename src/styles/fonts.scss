@@ -1,0 +1,26 @@
+@font-face {
+  font-family: Graphik;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/graphik-cy-regular.woff2') format('woff2'),
+    url('../fonts/graphik-cy-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: Graphik;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/graphik-lc-web-medium.woff2') format('woff2'),
+    url('../fonts/graphik-lc-web-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: Graphik;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/graphik-cy-bold.woff2') format('woff2'),
+    url('../fonts/graphik-cy-bold.woff') format('woff');
+}
