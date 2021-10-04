@@ -1,0 +1,20 @@
+block variables
+
+doctype html
+html(lang=typeof documentLanguage === 'string' ? documentLanguage : 'ru')
+  head
+    meta(charset="utf-8")
+    if typeof pageDescription === 'string'
+      meta(name="description", content=pageDescription)
+    if typeof pageKeywords === 'string'
+      meta(name="keywords", content=pageKeywords)
+    meta(name="format-detection", content="email=no")
+    meta(name="format-detection", content="telephone=no")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    block head
+    link(href="./styles/main.css", rel="stylesheet")
+    title= pageTitle
+
+  body(class=bodyClasses)
+    block body
+    script(src="./scripts/main.js", defer)
