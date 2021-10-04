@@ -1,0 +1,56 @@
+@import './variables';
+
+body {
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  font-family: Graphik, Arial, sans-serif;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: $color-accent-first;
+  text-decoration: none;
+  transition: color 200ms;
+
+  &:hover,
+  &:focus {
+    color: $color-accent-second;
+    outline: 0;
+  }
+}
+
+.wrapper {
+  $grid-width: 280px;
+  width: 100%;
+  max-width: ($grid-width + $grid-padding * 2);
+  padding-right: $grid-padding;
+  padding-left: $grid-padding;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 768px) {
+    $grid-width: 588px;
+    max-width: ($grid-width + $grid-padding * 2);
+  }
+
+  @media (min-width: 1024px) {
+    $grid-width: 894px;
+    max-width: ($grid-width + $grid-padding * 2);
+  }
+
+  @media (min-width: 1280px) {
+    $grid-width: 1170px;
+    max-width: ($grid-width + $grid-padding * 2);
+  }
+}
