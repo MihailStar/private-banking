@@ -1,3 +1,4 @@
+@import './utilities';
 @import './variables';
 @import './fonts';
 
@@ -67,4 +68,8 @@ a {
       padding-left: 0;
     }
   }
+}
+
+.visually-hidden {
+  @extend %visually-hidden;
 }
