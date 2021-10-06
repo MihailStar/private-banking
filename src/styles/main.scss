@@ -27,7 +27,7 @@ a {
   transition: color 200ms;
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: $color-accent-second;
     outline: 0;
   }
