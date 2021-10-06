@@ -1,0 +1,13 @@
+mixin news(items)
+  .news&attributes(attributes)
+    .wrapper
+      header.news__header
+        h2.news__title Новости
+        a.news__link-more(href="#")
+          span Архив новостей
+          span.news__icon
+      ul.news__row
+        each item in items
+          li.news__column
+            time.news__time(datetime=item.time.datetime)!= item.time.text
+            a.news__link(href=item.link.href)!= item.link.text
