@@ -65,20 +65,20 @@ function buttonClickHandler(event: MouseEvent): void {
   });
 }
 
-// function collapseAccordion(event: MediaQueryListEvent): void {
-//   if (event.matches) {
-//     $buttons.forEach(($button) => {
-//       if ($button.classList.contains('footer-accordion__button_spoiler-open')) {
-//         $button.click();
-//       }
-//     });
-//   }
-// }
+function collapseAccordion(event: MediaQueryListEvent): void {
+  if (event.matches) {
+    $buttons.forEach(($button) => {
+      if ($button.classList.contains('footer-accordion__button_spoiler-open')) {
+        $button.click();
+      }
+    });
+  }
+}
 
 $buttons.forEach(($button) => {
   $button.addEventListener('click', buttonClickHandler);
 });
 
-// window
-//   .matchMedia('(min-width: 512px)')
-//   .addEventListener('change', collapseAccordion);
+window
+  .matchMedia('(min-width: 512px)')
+  .addEventListener('change', collapseAccordion);
