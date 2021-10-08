@@ -1,0 +1,9 @@
+include ../info-block/info-block.pug
+
+mixin units(items)
+  .units&attributes(attributes)
+    .wrapper
+      .units__row
+        each item in items
+          .units__column(class=item.column.classes)
+            +info-block(item.infoBlock)

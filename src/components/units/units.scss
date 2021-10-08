@@ -1,0 +1,48 @@
+@import '../info-block/info-block';
+@import '../../styles/owl.carousel/owl.carousel.min';
+
+.units {
+  &__row {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 30px;
+      column-gap: $grid-gap;
+    }
+  }
+
+  &__column {
+    @media (min-width: 768px) {
+      display: flex;
+      width: 100%;
+    }
+
+    &_1-of-3 {
+      @media (min-width: 768px) {
+        width: calc(50% - #{$grid-gap} / 2);
+      }
+
+      @media (min-width: 1280px) {
+        $grid-width: 1170px;
+        $grid-column-width: 370px;
+        width: ($grid-column-width / $grid-width * 100%);
+      }
+    }
+
+    &_2-of-3 {
+      @media (min-width: 768px) {
+        width: calc(50% - #{$grid-gap} / 2);
+      }
+
+      @media (min-width: 1024px) {
+        width: 100%;
+      }
+
+      @media (min-width: 1280px) {
+        $grid-width: 1170px;
+        $grid-column-width: 770px;
+        width: ($grid-column-width / $grid-width * 100%);
+      }
+    }
+  }
+}
