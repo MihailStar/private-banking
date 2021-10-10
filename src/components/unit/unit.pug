@@ -1,0 +1,13 @@
+include ../info-block/info-block.pug
+include ../button/button.pug
+
+mixin unit(item)
+  .unit&attributes(attributes)
+    .wrapper
+      +info-block(item.infoBlock)
+        if (item.button)
+          .info-block__button
+            +button({
+              href: item.button.href,
+              text: item.button.text,
+            })

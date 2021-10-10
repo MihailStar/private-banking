@@ -6,6 +6,34 @@ block variables
 
 block body
   main.main
+    +unit({
+      infoBlock: {
+        title: 'Переводите с&nbsp;карты на&nbsp;карту',
+        text: 'Быстрый и&nbsp;удобный способ перевести денежные средства. Узнайте о&nbsp;<a href="#">лимитах и&nbsp;комиссиях</a>',
+        background: {
+          color: '#f4f4f6',
+          image: 'cards.png',
+          position: {
+            '0': 'right -43px bottom -33px',
+            '512': 'right -43px bottom -33px',
+            '768': 'right -92px bottom -96px',
+            '1024': 'right -51px bottom -110px',
+            '1280': 'right 27px bottom -120px',
+          },
+          size: {
+            '0': '350px auto',
+            '512': '350px auto',
+            '768': '520px auto',
+            '1024': '558px auto',
+            '1280': 'auto auto',
+          },
+        },
+      },
+      button: {
+        href: '#',
+        text: 'Перевести',
+      },
+    })
     +units([
       {
         column: {
