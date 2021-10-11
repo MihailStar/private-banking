@@ -1,0 +1,22 @@
+mixin card-footer(item)
+  footer.card-footer&attributes(attributes)
+    a.card-footer__link(href=item.href)
+      span!= item.text
+      span.card-footer__icon
+        svg(
+          width="33",
+          height="14",
+          viewBox="0 0 33 14",
+          fill="none",
+          xmlns="http://www.w3.org/2000/svg"
+        )
+          path(
+            d="M30 6.8H0",
+            stroke-width="2",
+            stroke-miterlimit="10"
+          )
+          path(
+            d="m23.7.8 7.3 6-7.2 6",
+            stroke-width="2",
+            stroke-miterlimit="10"
+          )
