@@ -1,0 +1,543 @@
+@import '../card-footer/card-footer';
+
+.tables {
+  &__row {
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 30px;
+      column-gap: $grid-gap;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      width: calc(50% - #{$grid-gap} / 2);
+    }
+  }
+
+  &__header {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 30px;
+    color: $color-accent-second;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+
+    &_with-icon-currency {
+      &::before {
+        width: 26px;
+        height: 15px;
+        background-image: url('../images/icon-currency.svg');
+      }
+    }
+
+    &_with-icon-coins {
+      &::before {
+        width: 22px;
+        height: 20px;
+        background-image: url('../images/icon-coins.svg');
+      }
+    }
+
+    &_with-icon-currency,
+    &_with-icon-coins {
+      &::before {
+        flex-shrink: 0;
+        margin-right: 10px;
+        content: '';
+        background-repeat: no-repeat;
+      }
+    }
+
+    span {
+      margin-right: 8px;
+    }
+  }
+
+  &__time {
+    color: $color-gray-dark;
+  }
+
+  &__table {
+    // TODO: заменить костыль с min-height
+    flex-grow: 1;
+    min-height: 267px;
+    padding-top: 23px;
+    padding-right: 19px;
+    padding-bottom: 0;
+    padding-left: 19px;
+    border: 1px solid rgba($color-gray-dark, 0.2);
+    border-bottom: 0;
+
+    @media (min-width: 768px) {
+      min-height: 355px;
+      padding-top: 28px;
+      padding-right: 28px;
+      padding-bottom: 0;
+      padding-left: 28px;
+    }
+
+    @media (min-width: 1024px) {
+      min-height: auto;
+    }
+  }
+}
+
+.tables-tablist {
+  display: flex;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+
+  &__item {
+    display: block;
+    width: 50%;
+
+    &_right-align-on-mobile {
+      display: flex;
+      justify-content: flex-end;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+  }
+
+  &__tab {
+    display: block;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 30px;
+    color: rgba($color-gray-dark, 0.5);
+    text-align: left;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+
+    &_active {
+      cursor: initial;
+
+      span {
+        color: $color-accent-second;
+      }
+
+      time {
+        color: $color-gray-dark;
+      }
+    }
+
+    time {
+      margin-left: 8px;
+    }
+
+    span,
+    time {
+      transition: color 200ms;
+    }
+
+    &:hover,
+    &:focus-visible {
+      outline: 0;
+
+      span {
+        color: $color-accent-second;
+      }
+
+      time {
+        color: $color-gray-dark;
+      }
+    }
+  }
+}
+
+.tables-tabpanel {
+  display: none;
+
+  &_open {
+    display: block;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__th {
+    padding-top: 12px;
+    padding-right: 0;
+    padding-bottom: 9px;
+    padding-left: 0;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 9px;
+    color: $color-gray-dark;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba($color-gray-dark, 0.2);
+
+    @media (min-width: 768px) {
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    // stylelint-disable-next-line no-descending-specificity
+    span {
+      &:nth-child(1) {
+        display: none;
+
+        @media (min-width: 768px) {
+          display: inline-block;
+        }
+      }
+
+      &:nth-child(2) {
+        display: inline-block;
+
+        @media (min-width: 768px) {
+          display: none;
+        }
+
+        &::after {
+          content: attr(data-title);
+
+          @media (min-width: 768px) {
+            content: none;
+          }
+        }
+      }
+    }
+
+    &_currency {
+      width: (100% / 4);
+
+      // stylelint-disable-next-line order/order
+      $table-column-widths: (92px, 104px, 118px, 118px, 98px);
+      @for $index from 1 through length($table-column-widths) {
+        $width: nth($table-column-widths, $index);
+        &:nth-child(#{$index}) {
+          @media (min-width: 768px) {
+            width: ($width / 530px * 100%);
+          }
+        }
+      }
+
+      $table-column-widths: (84px, null, 100px, 96px, 92px);
+      @for $index from 1 through length($table-column-widths) {
+        $width: nth($table-column-widths, $index);
+        @if $width != null {
+          &:nth-child(#{$index}) {
+            @media (min-width: 1024px) {
+              width: ($width / 374px * 100%);
+            }
+          }
+        }
+      }
+
+      $table-column-widths: (90px, 100px, 115px, 115px, 92px);
+      @for $index from 1 through length($table-column-widths) {
+        $width: nth($table-column-widths, $index);
+        &:nth-child(#{$index}) {
+          @media (min-width: 1280px) {
+            width: ($width / 512px * 100%);
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        display: none;
+
+        @media (min-width: 768px) {
+          display: table-cell;
+        }
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+
+        @media (min-width: 1280px) {
+          display: table-cell;
+        }
+      }
+    }
+
+    &_coins {
+      width: (100% / 3);
+
+      @media (min-width: 768px) {
+        width: (100% / 4);
+      }
+
+      // stylelint-disable-next-line order/order
+      $table-column-widths: (96px, 104px, 100px, 74px);
+      @for $index from 1 through length($table-column-widths) {
+        $width: nth($table-column-widths, $index);
+        &:nth-child(#{$index}) {
+          @media (min-width: 1024px) {
+            width: ($width / 374px * 100%);
+          }
+        }
+      }
+
+      $table-column-widths: (140px, 130px, 119px, 122px);
+      @for $index from 1 through length($table-column-widths) {
+        $width: nth($table-column-widths, $index);
+        &:nth-child(#{$index}) {
+          @media (min-width: 1280px) {
+            width: ($width / 512px * 100%);
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        display: none;
+
+        @media (min-width: 768px) {
+          display: table-cell;
+        }
+      }
+    }
+  }
+
+  &__td {
+    padding-top: 12px;
+    padding-right: 0;
+    padding-bottom: 12px;
+    padding-left: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    color: $color-dark;
+    text-align: left;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    @media (min-width: 1024px) {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    @media (min-width: 1280px) {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    &_currency {
+      font-weight: 700;
+      color: $color-gray-dark;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    &_coins {
+      font-weight: 400;
+      color: $color-gray-dark;
+    }
+
+    &_with-image-period {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: table-cell;
+      }
+
+      @media (min-width: 1024px) {
+        display: none;
+      }
+
+      @media (min-width: 1280px) {
+        display: table-cell;
+      }
+
+      img {
+        width: 52px;
+      }
+    }
+
+    &_with-image-coin {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: table-cell;
+      }
+
+      img {
+        @media (min-width: 768px) {
+          width: 100px;
+        }
+
+        @media (min-width: 1024px) {
+          width: 68px;
+        }
+
+        @media (min-width: 1280px) {
+          width: 100px;
+        }
+      }
+    }
+
+    &_with-image-period,
+    &_with-image-coin {
+      img {
+        height: auto;
+        vertical-align: middle;
+      }
+    }
+
+    &_with-icon-course-up {
+      color: $color-accent-first;
+
+      &::after {
+        @media (min-width: 768px) {
+          color: $color-accent-first;
+          content: '↑';
+        }
+      }
+    }
+
+    &_with-icon-course-down {
+      color: $color-accent-second;
+
+      &::after {
+        @media (min-width: 768px) {
+          color: $color-accent-second;
+          content: '↓';
+        }
+      }
+    }
+
+    &_with-icon-course-up,
+    &_with-icon-course-down {
+      @media (min-width: 768px) {
+        color: inherit;
+      }
+
+      &::after {
+        display: inline-block;
+        transform: translateY(-1px);
+      }
+
+      // stylelint-disable-next-line no-descending-specificity
+      span {
+        display: inline-block;
+        min-width: 60px;
+      }
+
+      &:last-child {
+        span {
+          min-width: 80px;
+        }
+      }
+    }
+  }
+
+  &__tr_currency {
+    &:nth-child(2) {
+      .table__td {
+        padding-top: 40px;
+
+        @media (min-width: 1024px) {
+          padding-top: 44px;
+        }
+
+        @media (min-width: 1280px) {
+          padding-top: 40px;
+        }
+      }
+    }
+
+    &:nth-last-child(1) {
+      .table__td {
+        padding-bottom: 40px;
+
+        @media (min-width: 1024px) {
+          padding-bottom: 44px;
+        }
+
+        @media (min-width: 1280px) {
+          padding-bottom: 40px;
+        }
+      }
+    }
+  }
+
+  &__tr_coins {
+    &:nth-child(2) {
+      .table__td {
+        padding-top: 28px;
+        padding-bottom: 9px;
+        vertical-align: bottom;
+
+        &_with-image-coin {
+          padding-top: 28px;
+          padding-bottom: (28px / 2);
+        }
+      }
+    }
+
+    &:nth-child(3) {
+      .table__td {
+        padding-top: 9px;
+        padding-bottom: (28px / 2);
+        vertical-align: top;
+      }
+    }
+
+    &:nth-last-child(2) {
+      .table__td {
+        padding-top: (28px / 2);
+        padding-bottom: 9px;
+        vertical-align: bottom;
+
+        &_with-image-coin {
+          padding-top: (28px / 2);
+          padding-bottom: 28px;
+        }
+      }
+    }
+
+    &:nth-last-child(1) {
+      .table__td {
+        padding-top: 9px;
+        padding-bottom: 28px;
+        vertical-align: top;
+      }
+    }
+  }
+}

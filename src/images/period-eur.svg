@@ -1,0 +1,23 @@
+<svg
+  width="52"
+  height="23"
+  viewBox="0 0 52 23"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path d="M0 22.5h51L47 9 31 1.5l-10 13H10.5L5.5 9 0 22.5Z" fill="url(#a)" />
+  <path d="M1 19 5.5 9l5 5H21L31 1.5l8 4L46.5 9 51 22.5" stroke="#8890a1" />
+  <defs>
+    <linearGradient
+      id="a"
+      x1="25.5"
+      y1="1.5"
+      x2="25.5"
+      y2="22.5"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#8890a1" stop-opacity=".2" />
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+</svg>

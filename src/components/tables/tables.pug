@@ -1,0 +1,168 @@
+include ../card-footer/card-footer.pug
+
+mixin tables
+  .tables&attributes(attributes)
+    .wrapper
+      .tables__row
+        ul.tables-tablist(role="tablist")
+          li.tables-tablist__item(role="presentation")
+            button.tables-tablist__tab.tables-tablist__tab_active#tables-tab-1(
+              type="button",
+              role="tab",
+              aria-selected="true",
+              aria-controls="tables-tabpanel-1",
+              data-tabpanel="#tables-tabpanel-1"
+            )
+              span Валюта
+              time(datetime="2019-07-18") 18.07.2019
+          li.tables-tablist__item.tables-tablist__item_right-align-on-mobile(
+            role="presentation"
+          )
+            button.tables-tablist__tab#tables-tab-2(
+              type="button",
+              role="tab",
+              aria-selected="false",
+              aria-controls="tables-tabpanel-2",
+              data-tabpanel="#tables-tabpanel-2"
+            )
+              span Монеты
+
+        .tables__column
+          header.tables__header
+            h2.tables__title.tables__title_with-icon-currency
+              span Валюта
+              time.tables__time(datetime="2019-07-18") 18.07.2019
+          .tables__table
+            table.table
+              tr.table__tr.table__tr_currency
+                th.table__th.table__th_currency
+                  span Валюта
+                  span(data-title="Вал.")
+                th.table__th.table__th_currency
+                  span Период
+                  span(data-title="Пер.")
+                th.table__th.table__th_currency
+                  span Покупка
+                  span(data-title="Покуп.")
+                th.table__th.table__th_currency
+                  span Продажа
+                  span(data-title="Прод.")
+                th.table__th.table__th_currency
+                  span ЦБ
+                  span(data-title="ЦБ")
+              tr.table__tr.table__tr_currency
+                td.table__td.table__td_currency USD
+                td.table__td.table__td_with-image-period
+                  img(
+                    width="52",
+                    height="28",
+                    src="./images/period-usd.svg",
+                    alt="Период USD"
+                  )
+                td.table__td.table__td_with-icon-course-down
+                  span 64,56
+                td.table__td.table__td_with-icon-course-up
+                  span 65,12
+                td.table__td.table__td_with-icon-course-up
+                  span 64,5645
+              tr.table__tr.table__tr_currency
+                td.table__td.table__td_currency EUR
+                td.table__td.table__td_with-image-period
+                  img(
+                    width="52",
+                    height="23",
+                    src="./images/period-eur.svg",
+                    alt="Период EUR"
+                  )
+                td.table__td.table__td_with-icon-course-down
+                  span 72,20
+                td.table__td.table__td_with-icon-course-down
+                  span 72,69
+                td.table__td.table__td_with-icon-course-down
+                  span 72,3422
+              tr.table__tr.table__tr_currency
+                td.table__td.table__td_currency GBP
+                td.table__td.table__td_with-image-period
+                  img(
+                    width="52",
+                    height="28",
+                    src="./images/period-gbp.svg",
+                    alt="Период GBP"
+                  )
+                td.table__td.table__td_with-icon-course-up
+                  span 84,40
+                td.table__td.table__td_with-icon-course-up
+                  span 85,02
+                td.table__td.table__td_with-icon-course-up
+                  span 85,4443
+              tr.table__tr.table__tr_currency
+                td.table__td.table__td_currency CHF
+                td.table__td.table__td_with-image-period
+                  img(
+                    width="52",
+                    height="23",
+                    src="./images/period-chf.svg",
+                    alt="Период CHF"
+                  )
+                td.table__td.table__td_with-icon-course-down
+                  span 59,33
+                td.table__td.table__td_with-icon-course-down
+                  span 60,56
+                td.table__td.table__td_with-icon-course-up
+                  span 59,6664
+          .tables__footer
+            +card-footer({
+              href: '#',
+              text: 'Курсы валют в отделениях Банка',
+            })
+
+        .tables__column
+          header.tables__header
+            h2.tables__title.tables__title_with-icon-coins
+              span Монеты из драгоценных металлов
+          .tables__table
+            table.table
+              tr.table__tr.table__tr_coins
+                th.table__th.table__th_coins
+                  span Вид
+                  span(data-title="Вид")
+                th.table__th.table__th_coins
+                  span Номинал
+                  span(data-title="Ном.")
+                th.table__th.table__th_coins
+                  span Покупка
+                  span(data-title="Покуп.")
+                th.table__th.table__th_coins
+                  span Продажа
+                  span(data-title="Прод.")
+              tr.table__tr.table__tr_coins
+                td.table__td.table__td_with-image-coin(rowspan="2")
+                  img(
+                    width="100",
+                    height="100",
+                    src="./images/george-victorious-gold.png",
+                    alt="Монета Георгий Победоносец (золото)"
+                  )
+                td.table__td.table__td_coins(colspan="3") Георгий Победоносец (золото)
+              tr.table__tr.table__tr_coins
+                td.table__td 50
+                td.table__td 21&nbsp;500
+                td.table__td 22&nbsp;456
+              tr.table__tr.table__tr_coins
+                td.table__td.table__td_with-image-coin(rowspan="2")
+                  img(
+                    width="100",
+                    height="100",
+                    src="./images/george-victorious-silver.png",
+                    alt="Монета Георгий Победоносец (серебро)"
+                  )
+                td.table__td.table__td_coins(colspan="3") Георгий Победоносец (серебро)
+              tr.table__tr.table__tr_coins
+                td.table__td 100
+                td.table__td 23&nbsp;565
+                td.table__td 23&nbsp;890
+          .tables__footer
+            +card-footer({
+              href: '#',
+              text: 'Каталог монет',
+            })
