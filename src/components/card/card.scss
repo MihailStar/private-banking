@@ -1,0 +1,100 @@
+@import '../card-footer/card-footer';
+
+.card {
+  position: relative;
+  height: 100%;
+  min-height: 405px;
+  padding-top: 46px;
+  padding-right: 20px;
+  padding-bottom: (40px + 30px);
+  padding-left: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+
+  @media (min-width: 768px) {
+    min-height: 430px;
+    padding-right: 30px;
+    padding-bottom: (70px + 30px);
+    padding-left: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-right: 23px;
+    padding-left: 23px;
+  }
+
+  @media (min-width: 1280px) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  &__tag {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 9px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba($color-light, 0.5);
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+      margin-bottom: 42px;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    color: $color-light;
+
+    @media (min-width: 768px) {
+      width: 346px;
+      font-size: 20px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 282px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 346px;
+      margin-bottom: 12px;
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+
+  &__description {
+    display: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-light;
+
+    @media (min-width: 768px) {
+      display: block;
+      width: 346px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 264px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 346px;
+    }
+  }
+
+  &__footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

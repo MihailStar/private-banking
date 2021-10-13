@@ -1,0 +1,35 @@
+include ../../templates/utilities.pug
+include ../card-footer/card-footer.pug
+
+mixin card(item)
+  -
+    const cardBlockId = getRandomId();
+    const styles = ['0', '512', '768', '1024', '1280'].map((value) =>
+      `@media (min-width: ${value}px) {
+        .card_${cardBlockId} {
+          background-position: ${item.card.background.position[value]};
+          background-size: ${item.card.background.size[value]};
+        }
+      }`.replace(/\s{2}/g, '')
+    );
+
+  script
+    each style in styles
+      .
+        document.styleSheets[document.styleSheets.length - 1].insertRule(
+          '#{style}',
+          document.styleSheets[document.styleSheets.length - 1].cssRules.length
+        );
+
+  .card(
+    class=`card_${cardBlockId}`,
+    style=`
+      background-color: ${item.card.background.color};
+      background-image: url(./images/${item.card.background.image});
+    `.replace(/\s{2}/g, '')
+  )&attributes(attributes)
+    strong.card__tag= item.card.tag
+    h3.card__title!= item.card.title
+    p.card__description!= item.card.text
+    .card__footer
+      +card-footer(item.cardFooter)
