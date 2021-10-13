@@ -42,7 +42,6 @@ function initialize(): void {
     } else {
       $tabpanel.classList.add('tables-tabpanel');
     }
-    $tabpanel.setAttribute('id', `tables-tabpanel-${index + 1}`);
     $tabpanel.setAttribute('role', 'tabpanel');
     $tabpanel.setAttribute('aria-labelledby', `tables-tab-${index + 1}`);
   });
@@ -57,7 +56,6 @@ function destroy(): void {
 
   $tabpanels.forEach(($tabpanel) => {
     $tabpanel.classList.remove('tables-tabpanel', 'tables-tabpanel_open');
-    $tabpanel.removeAttribute('id');
     $tabpanel.removeAttribute('role');
     $tabpanel.removeAttribute('aria-labelledby');
   });
