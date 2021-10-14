@@ -1,0 +1,80 @@
+@import '../../styles/owl.carousel/owl.carousel.min';
+@import '../card/card';
+
+.cards {
+  padding-top: 46px;
+  padding-bottom: 36px;
+
+  @media (min-width: 768px) {
+    padding-top: 25px;
+    padding-bottom: 51px;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 74px;
+    padding-bottom: 49px;
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 19px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    color: $color-dark;
+
+    @media (min-width: 768px) {
+      margin-bottom: 21px;
+      font-size: 35px;
+      line-height: 80px;
+    }
+  }
+
+  &__row {
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 30px;
+      column-gap: $grid-gap;
+    }
+  }
+
+  &__column {
+    @media (min-width: 768px) {
+      width: 588px;
+    }
+
+    @media (min-width: 1024px) {
+      width: calc(50% - #{$grid-gap} / 2);
+    }
+  }
+
+  .owl-carousel {
+    .owl-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .owl-dot {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      margin-left: 5px;
+      background-color: rgba($color-gray-dark, 0.2);
+      border-radius: 50%;
+      transition: background-color 200ms;
+
+      &:hover,
+      &:focus-visible {
+        background-color: $color-accent-second;
+        outline: 0;
+      }
+
+      &.active {
+        cursor: initial;
+        background-color: $color-accent-first;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+include ../card/card.pug
+
+mixin cards(items)
+  .cards&attributes(attributes)
+    .wrapper
+      h2.cards__title Услуги на рынке ценных бумаг
+    .wrapper.wrapper_cards
+      .cards__row
+        each item in items
+          .cards__column
+            +card(item)
