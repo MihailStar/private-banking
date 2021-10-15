@@ -1,0 +1,146 @@
+@import '../../styles/owl.carousel/owl.carousel.min';
+@import '../button/button';
+
+.slides {
+  position: relative;
+
+  &.owl-carousel {
+    .owl-dots {
+      position: absolute;
+      right: 0;
+      bottom: (36px - 10px);
+      left: 0;
+      display: flex;
+
+      @media (min-width: 768px) {
+        bottom: (54px - 10px);
+      }
+
+      @media (min-width: 1024px) {
+        bottom: (121px - 10px);
+      }
+
+      @media (min-width: 1280px) {
+        bottom: (103px - 10px);
+      }
+    }
+
+    .owl-dot {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      margin-left: 5px;
+      background-color: rgba($color-gray-dark, 0.2);
+      border-radius: 50%;
+      transition: background-color 200ms;
+
+      &:hover,
+      &:focus-visible {
+        background-color: $color-accent-second;
+        outline: 0;
+      }
+
+      &.active {
+        cursor: initial;
+        background-color: $color-accent-first;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.slide {
+  min-height: 280px;
+  padding-top: 36px;
+  padding-bottom: (36px + 10px);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+
+  @media (min-width: 768px) {
+    min-height: 500px;
+    padding-top: 54px;
+    padding-bottom: (54px + 10px);
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 589px;
+    padding-top: 121px;
+    padding-bottom: (121px + 10px);
+  }
+
+  @media (min-width: 1280px) {
+    padding-top: 103px;
+    padding-bottom: (103px + 10px);
+  }
+
+  &__title {
+    width: 211px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    color: $color-dark;
+
+    @media (min-width: 768px) {
+      width: 475px;
+      margin-bottom: 18px;
+      font-size: 45px;
+      line-height: 50px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-bottom: 14px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 739px;
+      margin-bottom: 22px;
+      font-size: 70px;
+      line-height: 80px;
+    }
+  }
+
+  &__description {
+    width: 244px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $color-gray-dark;
+
+    @media (min-width: 768px) {
+      width: 329px;
+      font-size: 18px;
+      line-height: 25px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 483px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 468px;
+    }
+  }
+
+  &__button {
+    margin-top: 14px;
+
+    @media (min-width: 768px) {
+      margin-top: 93px;
+    }
+
+    @media (min-width: 1024px) {
+      margin-top: 51px;
+    }
+  }
+}

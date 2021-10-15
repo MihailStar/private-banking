@@ -1,0 +1,43 @@
+include ../button/button.pug
+
+mixin slides(items)
+  .slides&attributes(attributes)
+    each item in items
+      -
+        const slideId = getRandomId();
+        const styles = ['0', '512', '768', '1024', '1280'].map((value) =>
+          `@media (min-width: ${value}px) {
+            .slide_${slideId} {
+              background-position: ${item.slide.background.position[value]};
+              background-size: ${item.slide.background.size[value]};
+            }
+          }`
+            .replace(/\s{2}/g, '')
+            .trim()
+        );
+
+      .slides__slide
+        script
+          each style in styles
+            .
+              document.styleSheets[document.styleSheets.length - 1].insertRule(
+                '#{style}',
+                document.styleSheets[document.styleSheets.length - 1].cssRules.length
+              );
+
+        .slide(
+          class = `slide_${slideId}`,
+          style=`
+            background-color: ${item.slide.background.color};
+            background-image: url(./images/${item.slide.background.image});
+          `.replace(/\s{2}/g, '').trim()
+        )
+          .wrapper
+            h2.slide__title!= item.slide.title
+            p.slide__description!= item.slide.text
+            if (item.button)
+              .slide__button
+                +button({
+                  href: item.button.href,
+                  text: item.button.text,
+                })
