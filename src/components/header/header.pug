@@ -1,0 +1,453 @@
+include ../button/button.pug
+
+mixin header
+  header.header&attributes(attributes)
+    .header__top
+      .wrapper
+        .header__row.header__row_top
+          .header__logotype
+          .header__links-start.dropdown
+            a.header__link Private Banking
+            a.header__link.dropdown__button#dropdown-button-4(
+              href="#about",
+              role="button",
+              aria-expanded="false",
+              aria-controls="about",
+              data-menu="#about"
+            ) О банке
+            .dropdown__menu#about(
+              aria-labelledby="dropdown-button-4"
+            )
+              .wrapper
+                .dropdown__row
+                  .dropdown__column
+                    a.dropdown__link(href="#") Для юридических лиц
+                    a.dropdown__link(href="#") Резервный канал
+                  .dropdown__column
+                    a.dropdown__link(href="#") Для частных клиентов
+                    a.dropdown__link(href="#") Личный кабинет инвестора
+                  .dropdown__column
+                    a.dropdown__link(href="#") Перевод с&nbsp;карты на&nbsp;карту
+                    a.dropdown__link(href="#") Samsung Pay
+          .header__links-end
+            a.header__link(href="#") Офисы и банкоматы
+            a.header__link(href="#") EN
+            a.header__link.header__link_eye(href="#")
+              span.visually-hidden Версия сайта для слабовидящих
+              svg(
+                width="25",
+                height="14",
+                viewBox="0 0 25 14",
+                fill="none",
+                xmlns="http://www.w3.org/2000/svg",
+                aria-hidden="true"
+              )
+                mask#a(fill="#ffffff")
+                  path(
+                    fill-rule="evenodd",
+                    clip-rule="evenodd",
+                    d="M19.799 2.177a17.117 17.117 0 0 1 4.777 4.365l-.063.102c-.046.075-.09.146-.138.208-1.59 2.148-3.48 3.996-5.793 5.364-2.626 1.559-5.452 2.188-8.48 1.519-4.184-.92-7.15-3.517-9.484-6.953-.08-.11-.05-.38.04-.5C2.79 3.517 5.466 1.479 8.876.52c3.872-1.09 7.523-.43 10.923 1.658Zm-7.272-.17c-2.766 0-5.03 2.228-5.04 4.975-.01 2.747 2.233 5.004 5 5.004 2.786.02 5.059-2.227 5.059-4.994 0-2.737-2.253-4.985-5.02-4.985Zm.452 2.078c-.221 1.868 1.026 2.657 2.484 2.417a2.936 2.936 0 0 1-1.559 3.157 3.024 3.024 0 0 1-3.56-.57c-.916-.959-1.117-2.357-.483-3.506.623-1.129 1.92-1.758 3.118-1.498Z"
+                  )
+                path(
+                  fill-rule="evenodd",
+                  clip-rule="evenodd",
+                  d="M19.799 2.177a17.117 17.117 0 0 1 4.777 4.365l-.063.102c-.046.075-.09.146-.138.208-1.59 2.148-3.48 3.996-5.793 5.364-2.626 1.559-5.452 2.188-8.48 1.519-4.184-.92-7.15-3.517-9.484-6.953-.08-.11-.05-.38.04-.5C2.79 3.517 5.466 1.479 8.876.52c3.872-1.09 7.523-.43 10.923 1.658Zm-7.272-.17c-2.766 0-5.03 2.228-5.04 4.975-.01 2.747 2.233 5.004 5 5.004 2.786.02 5.059-2.227 5.059-4.994 0-2.737-2.253-4.985-5.02-4.985Zm.452 2.078c-.221 1.868 1.026 2.657 2.484 2.417a2.936 2.936 0 0 1-1.559 3.157 3.024 3.024 0 0 1-3.56-.57c-.916-.959-1.117-2.357-.483-3.506.623-1.129 1.92-1.758 3.118-1.498Z",
+                  fill="currentColor"
+                )
+                path(
+                  d="m24.576 6.542.8-.6.416.556-.374.584-.842-.54ZM19.8 2.177l-.524.852.524-.852Zm4.714 4.467.853.522-.853-.522Zm-.138.208-.804-.595.008-.01.009-.012.787.617Zm-5.793 5.364-.51-.86.51.86Zm-8.48 1.519.215-.977h.002l-.216.977ZM.619 6.782l.807-.59.01.014.01.014-.827.562Zm.04-.5L-.14 5.68l.006-.008.792.61ZM8.876.52l-.271-.963.27.963ZM7.488 6.982l-1-.004 1 .004Zm4.998 5.004v-1h.007l-.007 1Zm2.977-5.484-.162-.987.964-.158.18.96-.982.185ZM12.98 4.085l.212-.978.888.193-.107.902-.993-.117Zm.925 5.574-.466-.885.01-.005.456.89Zm-3.56-.57-.72.694-.004-.003.724-.69ZM9.86 5.583 8.985 5.1l.876.483Zm13.915 1.559a16.12 16.12 0 0 0-4.5-4.113l1.046-1.704a18.118 18.118 0 0 1 5.054 4.618l-1.6 1.199Zm-.116-1.02.074-.12 1.684 1.08a4.99 4.99 0 0 0-.052.084L23.66 6.122Zm-.072.113.004-.006a.691.691 0 0 0 .015-.021l.053-.086 1.706 1.044c-.04.064-.113.187-.204.303l-1.574-1.234Zm-5.516 5.12c2.177-1.287 3.973-3.035 5.5-5.098l1.607 1.19c-1.652 2.232-3.638 4.18-6.088 5.63l-1.019-1.722Zm-7.753 1.403c2.74.606 5.309.049 7.752-1.402l1.021 1.72c-2.807 1.666-5.891 2.368-9.205 1.635l.431-1.953ZM1.444 6.22c2.241 3.3 5.014 5.69 8.872 6.538l-.429 1.953c-4.51-.99-7.671-3.795-10.097-7.367L1.445 6.22Zm.011.665a.618.618 0 0 0 .097-.18.352.352 0 0 0 .017-.078.453.453 0 0 0-.006-.116.754.754 0 0 0-.14-.32L-.188 7.373c-.26-.356-.248-.76-.233-.928.018-.2.084-.502.282-.765l1.596 1.205Zm7.69-5.404c-3.167.891-5.67 2.784-7.696 5.412l-1.584-1.22C2.106 2.765 4.953.582 8.605-.445l.541 1.925Zm10.13 1.548C16.088 1.072 12.722.476 9.145 1.481L8.605-.444c4.167-1.172 8.104-.45 11.717 1.769l-1.047 1.704ZM6.487 6.98C6.5 3.67 9.219 1.006 12.527 1.006v2c-2.225 0-4.031 1.792-4.04 3.978l-2-.007Zm5.998 6.007c-3.319 0-6.01-2.706-5.998-6.008l2 .007c-.009 2.193 1.785 4.001 3.998 4.001v2Zm6.06-5.994c0 3.327-2.73 6.018-6.067 5.994l.014-2c2.236.016 4.053-1.787 4.053-3.994h2Zm-6.02-5.985c3.314 0 6.02 2.69 6.02 5.985h-2c0-2.18-1.8-3.985-4.02-3.985v-2Zm3.1 6.482c-.93.153-1.935 0-2.687-.647-.78-.67-1.093-1.7-.953-2.875l1.986.235c-.082.692.118.992.27 1.123.182.156.53.277 1.059.19l.324 1.974Zm-2.179 1.28a1.936 1.936 0 0 0 1.034-2.082l1.965-.37a3.936 3.936 0 0 1-2.085 4.231l-.914-1.779Zm-2.384-.374c.607.629 1.592.79 2.375.379l.932 1.77a4.024 4.024 0 0 1-4.746-.76l1.44-1.389Zm-.327-2.33c-.415.754-.294 1.68.331 2.334L9.62 9.779C8.414 8.517 8.133 6.646 8.985 5.1l1.751.967Zm2.03-1.003c-.728-.158-1.601.229-2.03 1.005l-1.75-.968c.818-1.481 2.54-2.353 4.205-1.992l-.424 1.955Z",
+                  fill="currentColor",
+                  mask="url(#a)"
+                )
+            a.header__link.header__link_telephone(href="tel:+74959568626") +7 495 956 86 26
+            button.header__search-button.header__search-button_top(
+              type="button"
+            )
+              span.visually-hidden Поиск по сайту
+              svg(
+                width="16",
+                height="15",
+                viewBox="0 0 16 15",
+                fill="none",
+                xmlns="http://www.w3.org/2000/svg",
+                aria-hidden="true"
+              )
+                path(
+                  fill-rule="evenodd",
+                  clip-rule="evenodd",
+                  d="M10 6a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-.287 4.713a6 6 0 1 1 1.345-1.484l4.356 4.357L14 15l-4.287-4.287Z"
+                )
+            button.header__menu-button#menu-button(
+              type="button",
+              aria-expanded="false",
+              aria-controls="menu-spoiler",
+              data-menu="#menu-spoiler"
+            )
+              span.visually-hidden Меню сайта
+              span
+            .menu#menu-spoiler(aria-labelledby="menu-button")
+              .wrapper
+                h3.menu__title
+                  button.menu__accordion-button#menu-accordion-button-1(
+                    type="button",
+                    aria-expanded="false",
+                    aria-controls="menu-accordion-spoiler-1",
+                    data-spoiler="#menu-accordion-spoiler-1"
+                  ) Частным клиентам
+                  span.menu__accordion-icon
+                    svg(
+                      width="14",
+                      height="8",
+                      viewBox="0 0 14 8",
+                      xmlns="http://www.w3.org/2000/svg",
+                      aria-hidden="true"
+                    )
+                      path(
+                        d="M1.3 0l5.4 4.5L12 0l1.3 1.6-6.6 5.5L0 1.6 1.3 0z"
+                      )
+                .menu__accordion-spoiler#menu-accordion-spoiler-1(
+                  aria-labelledby="menu-accordion-button-1",
+                  aria-hidden="true"
+                )
+                  ul.menu__accordion-list
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Платежный сервис
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Монеты
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Вклады
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Банковские карты
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Кредитование физических лиц
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Операции с&nbsp;наличной иностранной валютой
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Тарифы
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Текущие счета
+                  img.menu__accordion-image(
+                    width="270",
+                    height="185",
+                    src="./images/private-clients.png",
+                    alt="Частным клиентам"
+                  )
+                  strong.menu__accordion-subtitle Интернет-банк для частных лиц
+                  .menu__accordion-login-button
+                    +button({
+                      href: '#',
+                      text: 'Войти в личный кабинет',
+                    })
+              hr.menu__line
+              .wrapper
+                h3.menu__title
+                  button.menu__accordion-button#menu-accordion-button-2(
+                    type="button",
+                    aria-expanded="false",
+                    aria-controls="menu-accordion-spoiler-2",
+                    data-spoiler="#menu-accordion-spoiler-2"
+                  ) Корпоративным клиентам
+                  span.menu__accordion-icon
+                    svg(
+                      width="14",
+                      height="8",
+                      viewBox="0 0 14 8",
+                      xmlns="http://www.w3.org/2000/svg",
+                      aria-hidden="true"
+                    )
+                      path(
+                        d="M1.3 0l5.4 4.5L12 0l1.3 1.6-6.6 5.5L0 1.6 1.3 0z"
+                      )
+                .menu__accordion-spoiler#menu-accordion-spoiler-2(
+                  aria-labelledby="menu-accordion-button-2",
+                  aria-hidden="true"
+                )
+                  ul.menu__accordion-list
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Интернет-банк
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Расчетно-кассовое обслуживание
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Как стать клиентом
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Кредитные сделки
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Тарифы
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Валютный контроль
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Управление проектного и&nbsp;структурного финансирования
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Корпоративное финансирование
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Организация операционно-кассового подразделения
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Войти в&nbsp;интернет-банк для юридических лиц
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Векселя
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Торговое финансирование и&nbsp;экспортно-импортные операции
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Инкассация
+                  img.menu__accordion-image(
+                    width="270",
+                    height="185",
+                    src="./images/corporate-clients.png",
+                    alt="Корпоративным клиентам"
+                  )
+                  strong.menu__accordion-subtitle Интернет-банк для юридических лиц
+                  .menu__accordion-login-button
+                    +button({
+                      href: '#',
+                      text: 'Войти в личный кабинет',
+                    })
+              hr.menu__line
+              .wrapper
+                h3.menu__title
+                  button.menu__accordion-button#menu-accordion-button-3(
+                    type="button",
+                    aria-expanded="false",
+                    aria-controls="menu-accordion-spoiler-3",
+                    data-spoiler="#menu-accordion-spoiler-3"
+                  ) Услуги на рынке ценных бумаг
+                  span.menu__accordion-icon
+                    svg(
+                      width="14",
+                      height="8",
+                      viewBox="0 0 14 8",
+                      xmlns="http://www.w3.org/2000/svg",
+                      aria-hidden="true"
+                    )
+                      path(
+                        d="M1.3 0l5.4 4.5L12 0l1.3 1.6-6.6 5.5L0 1.6 1.3 0z"
+                      )
+                .menu__accordion-spoiler#menu-accordion-spoiler-3(
+                  aria-labelledby="menu-accordion-button-3",
+                  aria-hidden="true"
+                )
+                  ul.menu__accordion-list
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Брокерское обслуживание
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Документы
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Прямой доступ на&nbsp;валютный рынок
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Облигации
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Еврооблигации
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Тарифы
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Интернет-трейдинг QUIK
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Интернет-трейдинг TRANSAQ
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Войти в&nbsp;личный кабинет
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Депозитарные услуги
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Открыть счет
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Рынки
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Непокрытые сделки
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Контакты
+                  img.menu__accordion-image(
+                    width="270",
+                    height="185",
+                    src="./images/services.png",
+                    alt="Услуги на рынке ценных бумаг"
+                  )
+                  .menu__accordion-login-button
+                    +button({
+                      href: '#',
+                      text: 'Войти в личный кабинет',
+                    })
+              hr.menu__line
+              .wrapper
+                h3.menu__title
+                  button.menu__accordion-button#menu-accordion-button-4(
+                    type="button",
+                    aria-expanded="false",
+                    aria-controls="menu-accordion-spoiler-4",
+                    data-spoiler="#menu-accordion-spoiler-4"
+                  ) О банке
+                  span.menu__accordion-icon
+                    svg(
+                      width="14",
+                      height="8",
+                      viewBox="0 0 14 8",
+                      xmlns="http://www.w3.org/2000/svg",
+                      aria-hidden="true"
+                    )
+                      path(
+                        d="M1.3 0l5.4 4.5L12 0l1.3 1.6-6.6 5.5L0 1.6 1.3 0z"
+                      )
+                .menu__accordion-spoiler#menu-accordion-spoiler-4(
+                  aria-labelledby="menu-accordion-button-4",
+                  aria-hidden="true"
+                )
+                  ul.menu__accordion-list
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Для юридических лиц
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Резервный канал
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Для частных клиентов
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Личный кабинет инвестора
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Перевод с&nbsp;карты на&nbsp;карту
+                    li.menu__accordion-item
+                      a.menu__accordion-link(href="#") Samsung Pay
+              hr.menu__line
+              .wrapper
+                a.menu__link Private Banking
+              hr.menu__line
+              .wrapper
+                a.menu__link(href="#") Специальная версия для людей с&nbsp;ограниченными возможностями
+              hr.menu__line
+              .wrapper
+                a.menu__link.menu__link_telephone(href="tel:+74959568626") +7 495 956 86 26
+
+    .header__bottom
+      .wrapper
+        .header__row.header__row_bottom
+          ul.header-list.dropdown
+            li.header-list__item
+              a.header-list__link.dropdown__button#dropdown-button-1(
+                href="#private-clients",
+                role="button",
+                aria-expanded="false",
+                aria-controls="private-clients",
+                data-menu="#private-clients"
+              ) Частным клиентам
+              .dropdown__menu#private-clients(
+                aria-labelledby="dropdown-button-1"
+              )
+                .wrapper
+                  .dropdown__row
+                    .dropdown__column
+                      a.dropdown__link(href="#") Платежный сервис
+                      a.dropdown__link(href="#") Монеты
+                      a.dropdown__link(href="#") Вклады
+                      a.dropdown__link(href="#") Банковские карты
+                    .dropdown__column
+                      a.dropdown__link(href="#") Кредитование физических лиц
+                      a.dropdown__link(href="#") Операции с&nbsp;наличной иностранной валютой
+                      a.dropdown__link(href="#") Тарифы
+                      a.dropdown__link(href="#") Текущие счета
+                    .dropdown__column.dropdown__column_bottom
+                      img.dropdown__image(
+                        width="270",
+                        height="185",
+                        src="./images/private-clients.png",
+                        alt="Частным клиентам"
+                      )
+                      strong.dropdown__subtitle Интернет-банк для частных лиц
+                      .dropdown__login-button
+                        +button({
+                          href: '#',
+                          text: 'Войти в личный кабинет',
+                        })
+            li.header-list__item
+              a.header-list__link.dropdown__button#dropdown-button-2(
+                href="#corporate-clients",
+                role="button",
+                aria-expanded="false",
+                aria-controls="corporate-clients",
+                data-menu="#corporate-clients"
+              ) Корпоративным клиентам
+              .dropdown__menu#corporate-clients(
+                aria-labelledby="dropdown-button-2"
+              )
+                .wrapper
+                  .dropdown__row
+                    .dropdown__column
+                      a.dropdown__link(href="#") Интернет-банк
+                      a.dropdown__link(href="#") Расчетно-кассовое обслуживание
+                      a.dropdown__link(href="#") Как стать клиентом
+                      a.dropdown__link(href="#") Кредитные сделки
+                      a.dropdown__link(href="#") Тарифы
+                      a.dropdown__link(href="#") Валютный контроль
+                      a.dropdown__link(href="#") Управление проектного и&nbsp;структурного финансирования
+                    .dropdown__column
+                      a.dropdown__link(href="#") Корпоративное финансирование
+                      a.dropdown__link(href="#") Организация операционно-кассового подразделения
+                      a.dropdown__link(href="#") Войти в&nbsp;интернет-банк для юридических лиц
+                      a.dropdown__link(href="#") Векселя
+                      a.dropdown__link(href="#") Торговое финансирование и&nbsp;экспортно-импортные операции
+                      a.dropdown__link(href="#") Инкассация
+                    .dropdown__column.dropdown__column_bottom
+                      img.dropdown__image(
+                        width="270",
+                        height="185",
+                        src="./images/corporate-clients.png",
+                        alt="Корпоративным клиентам"
+                      )
+                      strong.dropdown__subtitle Интернет-банк для юридических лиц
+                      .dropdown__login-button
+                        +button({
+                          href: '#',
+                          text: 'Войти в личный кабинет',
+                        })
+            li.header-list__item
+              a.header-list__link.dropdown__button#dropdown-button-3(
+                href="#services",
+                role="button",
+                aria-expanded="false",
+                aria-controls="services",
+                data-menu="#services"
+              ) Услуги на рынке ценных бумаг
+              .dropdown__menu#services(
+                aria-labelledby="dropdown-button-3"
+              )
+                .wrapper
+                  .dropdown__row
+                    .dropdown__column
+                      a.dropdown__link(href="#") Брокерское обслуживание
+                      a.dropdown__link(href="#") Документы
+                      a.dropdown__link(href="#") Прямой доступ на&nbsp;валютный рынок
+                      a.dropdown__link(href="#") Облигации
+                      a.dropdown__link(href="#") Еврооблигации
+                      a.dropdown__link(href="#") Тарифы
+                      a.dropdown__link(href="#") Интернет-трейдинг QUIK
+                    .dropdown__column
+                      a.dropdown__link(href="#") Интернет-трейдинг TRANSAQ
+                      a.dropdown__link(href="#") Войти в&nbsp;личный кабинет
+                      a.dropdown__link(href="#") Депозитарные услуги
+                      a.dropdown__link(href="#") Открыть счет
+                      a.dropdown__link(href="#") Рынки
+                      a.dropdown__link(href="#") Непокрытые сделки
+                      a.dropdown__link(href="#") Контакты
+                    .dropdown__column.dropdown__column_bottom
+                      img.dropdown__image(
+                        width="270",
+                        height="185",
+                        src="./images/services.png",
+                        alt="Услуги на рынке ценных бумаг"
+                      )
+                      .dropdown__login-button
+                        +button({
+                          href: '#',
+                          text: 'Войти в личный кабинет',
+                        })
+          button.header__search-button.header__search-button_bottom(
+            type="button"
+          )
+            span.visually-hidden Поиск по сайту
+            svg(
+              width="16",
+              height="15",
+              viewBox="0 0 16 15",
+              fill="none",
+              xmlns="http://www.w3.org/2000/svg",
+              aria-hidden="true"
+            )
+              path(
+                fill-rule="evenodd",
+                clip-rule="evenodd",
+                d="M10 6a4 4 0 1 1-8 0 4 4 0 0 1 8 0Zm-.287 4.713a6 6 0 1 1 1.345-1.484l4.356 4.357L14 15l-4.287-4.287Z"
+              )
